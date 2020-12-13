@@ -13,7 +13,10 @@ public class CoffeeMachine {
 
     public static void main(String[] args) {
 
-        while (true) {
+
+        boolean iWantBuyCoffee = true;
+
+        do {
             System.out.println("Write action (buy, fill, take, remaining, exit):");
             Scanner scanner = new Scanner(System.in);
             String action = scanner.nextLine();
@@ -126,12 +129,12 @@ public class CoffeeMachine {
                     System.out.println("The coffee machine has: \n" + water + " of water \n" + milk +
                             " of milk \n" + beans + " of coffee beans \n" + cups + " of disposable cups \n"
                             + money + " of money");
-                case "exit":
                     break;
-                case "back":
-                    //continue;
+                case "exit":
+                    iWantBuyCoffee = false;
+                    break;
             }
-        }
+        } while (iWantBuyCoffee);
     }
 }
 
