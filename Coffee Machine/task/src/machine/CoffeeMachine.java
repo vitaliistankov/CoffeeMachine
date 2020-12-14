@@ -17,15 +17,15 @@ public class CoffeeMachine {
         boolean iWantBuyCoffee = true;
 
         do {
-            System.out.println("Write action (buy, fill, take, remaining, exit):");
+            System.out.println("\nWrite action (buy, fill, take, remaining, exit):");
             Scanner scanner = new Scanner(System.in);
-            String action = scanner.nextLine();
+            String action = scanner.next();
             switch (action) {
                 case "buy":
-                    System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:");
-                    int drinkChoice = scanner.nextInt();
+                    System.out.println("\nWhat do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:");
+                    String drinkChoice = scanner.next();
                     switch (drinkChoice) {
-                        case 1:
+                        case "1":
                             if (water >= 250 & beans >= 16 & cups >= 1) {
                                 System.out.println("I have enough resources, making you a coffee!\n");
                             }
@@ -47,7 +47,7 @@ public class CoffeeMachine {
                             }
                             money += 4;
                             break;
-                        case 2:
+                        case "2":
                             if (water >= 350 & milk >= 75 & beans >= 20 & cups >= 1) {
                                 System.out.println("I have enough resources, making you a coffee!\n");
                             }
@@ -74,40 +74,37 @@ public class CoffeeMachine {
                             }
                             money += 7;
                             break;
-                        case 3:
+                        case "3":
                             if (water >= 200 & milk >= 100 & beans >= 12 & cups >= 1) {
                                 System.out.println("I have enough resources, making you a coffee!\n");
                             }
                             if (water >= 200) {
                                 water -= 200;
-                                break;
                             } else {
                                 System.out.println("Sorry, not enough water!");
                             }
                             if (milk >= 100) {
                                 milk -= 100;
-                                break;
                             } else {
                                 System.out.println("Sorry, not enough milk!");
                             }
                             if (beans >= 12) {
                                 beans -= 12;
-                                break;
                             } else {
                                 System.out.println("Sorry, not enough beans!");
                             }
                             if (cups >= 1) {
                                 cups--;
-                                break;
                             } else {
                                 System.out.println("Sorry, not enough cups!");
                             }
                             money += 6;
                             break;
+                        case "back": continue;
                     }
                     break;
                 case "fill":
-                    System.out.println("Write how many ml of water do you want to add: ");
+                    System.out.println("\nWrite how many ml of water do you want to add: ");
                     int howManyWaterToAdd = scanner.nextInt();
                     water = water + howManyWaterToAdd;
                     System.out.println("Write how many ml of milk do you want to add: ");
@@ -126,7 +123,7 @@ public class CoffeeMachine {
                     money = bank - money;
                     break;
                 case "remaining":
-                    System.out.println("The coffee machine has: \n" + water + " of water \n" + milk +
+                    System.out.println("\nThe coffee machine has: \n" + water + " of water \n" + milk +
                             " of milk \n" + beans + " of coffee beans \n" + cups + " of disposable cups \n"
                             + money + " of money");
                     break;
