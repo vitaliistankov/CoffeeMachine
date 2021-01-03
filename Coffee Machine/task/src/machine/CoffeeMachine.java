@@ -100,7 +100,8 @@ public class CoffeeMachine {
                             }
                             money += 6;
                             break;
-                        case "back": continue;
+                        case "back":
+                            continue;
                     }
                     break;
                 case "fill":
@@ -134,7 +135,6 @@ public class CoffeeMachine {
         } while (iWantBuyCoffee);
     }
 }
-
 
 
 
